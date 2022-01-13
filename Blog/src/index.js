@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const { log } = require('console');
 const port = 3000;
 
-const Router = require('./router')
+const router = require('./router')
 
 app.use(express.static(path.join(__dirname,"public")));
 
@@ -25,7 +25,7 @@ app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'resources\\views'));
 
 // Router init
-Router(app);
+router(app);
 
 
 app.listen(port, () => {
