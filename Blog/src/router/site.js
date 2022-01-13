@@ -4,9 +4,7 @@ const router = express.Router();
 
 console.log(siteController);
 
-router.use("/search", siteController.search);
-router.use("/", siteController.index);
-
+router.use('/search', siteController.search);
+router.use('/', siteController.index);
 
 module.exports = router;
-
