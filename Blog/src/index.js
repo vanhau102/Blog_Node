@@ -13,7 +13,7 @@ const db = require('./config/db');
 //Connect to DB
 db.connect();
 
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 //Use static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,12 +32,12 @@ app.engine(
     engine({
         extname: '.hbs',
         helpers: {
-            sum:(a,b)=> a + b,
-        }
+            sum: (a, b) => a + b,
+        },
     }),
 );
 app.set('view engine', '.hbs');
-app.set('views', path.join(__dirname, 'resources','views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 // app.set('views', path.join(__dirname, 'resources\\views'));
 
 // Router init
