@@ -21,7 +21,7 @@ class CourseController {
         course
             .save()
             .then(() => res.redirect('/me/stored/courses'))
-            .catch((errr) => { });
+            .catch((errr) => {});
     }
 
     edit(req, res, next) {
@@ -67,12 +67,12 @@ class CourseController {
                     .catch(next);
                 break;
             case 'restore':
-                        Course.restore({ _id: { $in: req.body.courseIds }})
+                Course.restore({ _id: { $in: req.body.courseIds } })
                     .then(() => res.redirect('back'))
                     .catch(next);
                 break;
             case 'deleteForce':
-                    Course.deleteOne({ _id: { $in: req.body.courseIds }})
+                Course.deleteOne({ _id: { $in: req.body.courseIds } })
                     .then(() => res.redirect('back'))
                     .catch(next);
                 break;

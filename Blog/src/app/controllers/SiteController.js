@@ -1,8 +1,10 @@
+const User = require('../models/User');
 const Course = require('../models/Course');
 const { multipleMongooseToObject } = require('../../util/mongoose');
+const { mongooseToObject } = require('../../util/mongoose');
 
 class SiteController {
-    index(rep, res, next) {
+    index(req, res, next) {
         Course.find({})
             .then((course) => {
                 res.render('home', {
@@ -11,7 +13,7 @@ class SiteController {
             })
             .catch(next);
     }
-    search(req, res) {
+    search(req, res, next) {
         res.render('search');
     }
 }
