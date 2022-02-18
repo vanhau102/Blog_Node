@@ -4,14 +4,12 @@ const mongooseDelete = require('mongoose-delete');
 
 const Schema = mongoose.Schema;
 
-const Course = new Schema(
+const User = new Schema(
     {
-        name: { type: String, maxLenght: 255 },
-        description: { type: String, maxLenght: 6000 },
+        fullname: { type: String, maxLenght: 255 },
+        email: { type: String, maxLenght: 6000 },
+        password: { type: String, maxLenght: 20, minLength: 8 },
         image: { type: String, maxLenght: 255 },
-        slug: { type: String },
-        videoId: { type: String },
-        slug: { type: String, slug: 'name', unique: true },
     },
     {
         timestamps: true,
@@ -20,8 +18,8 @@ const Course = new Schema(
 
 //Add plugin
 mongoose.plugin(slug);
-Course.plugin(mongooseDelete, {
+User.plugin(mongooseDelete, {
     deletedAt: true,
     overrideMethods: 'all',
 });
-module.exports = mongoose.model('Course', Course);
+module.exports = mongoose.model('User', User);

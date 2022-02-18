@@ -1,0 +1,52 @@
+<div class="container">
+    <table class="table mt-4 container">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Image</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.fullname}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.password}}</td>
+                <td>{{this.image}}</td>
+                <td>
+                    <a class="btn btn-primary" href="/user/{{this._id}}/edit">Update</a>
+                    <a class="btn btn-danger" href="/user/{{this._id}}">Delete</a>
+                    {{!-- <a class="btn btn-danger btn-delete-user" href="" data-toggle="modal"
+                        data-target="#delete-course-modal" data-id="{{this._id}}">Delete</a> --}}
+                </td>
+            </tr>
+            {{else}}
+            <tr class="text-center">
+                <td colspan="5">
+                    Không tìm thấy người dùng. Try again.
+                    <a href="/user/create">Add user</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{!--
+</div>
+<form method="POST" id="delete-course-form"></form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var deleteForm = document.getElementById("delete-course-form");
+        var btnDeleteUser = document.querySelector(".btn-delete-user");
+
+        btnDeleteUser.onclick = function (e) {
+            deleteForm.action = `/user/${users._id}?_method=DELETE`;
+            deleteForm.submit();
+        };
+    })
+</script> --}}
