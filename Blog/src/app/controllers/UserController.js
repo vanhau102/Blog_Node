@@ -2,6 +2,8 @@ const User = require('../models/User');
 const { multipleMongooseToObject } = require('../../util/mongoose');
 const { mongooseToObject } = require('../../util/mongoose');
 
+
+
 class UserController {
     index(req, res, next) {
         User.find({}).then((users) => {
@@ -20,7 +22,7 @@ class UserController {
         const user = new User(req.body);
         user.save()
             .then(() => res.redirect('/user'))
-            .catch((errr) => {});
+            .catch(next);
     }
 
     edit(req, res, next) {
