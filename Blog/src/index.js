@@ -3,12 +3,17 @@ const { engine } = require('express-handlebars');
 const methodOverride = require('method-override');
 const express = require('express');
 const app = express();
+const uploadFile = require('express-fileupload');
 const morgan = require('morgan');
 const { log } = require('console');
 const port = 3000;
 
 const router = require('./router');
 const db = require('./config/db');
+
+
+//Upload file 
+app.use(uploadFile());
 
 //Connect to DB
 db.connect();

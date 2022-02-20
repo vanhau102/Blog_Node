@@ -9,7 +9,6 @@ const User = new Schema(
         fullname: { type: String, maxLenght: 255 },
         email: { type: String, maxLenght: 6000 },
         password: { type: String, maxLenght: 20, minLength: 8 },
-        image: { type: String, maxLenght: 255 },
     },
     {
         timestamps: true,
